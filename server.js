@@ -99,8 +99,16 @@ Instructions:
 - Only use foods that appear in the menu sections provided
 - Build one realistic meal
 - Make the recommendation practical for a student dining hall plate
-- Stay within +-60 of the calorie goal and +-5 of all other nutrition goals (protein, fat, carbs, fiber)
-- If exact nutrition values are unknown, estimate carefully and clearly
+- You MUST hit as close as possible to ALL nutrition goals
+- Calories: must be within +-60 of the goal
+- Protein: must be within +-5g of the goal
+- Fat: must be within +-5g of the goal
+- Carbs: must be within +-5g of the goal
+- Fiber: must be within +-5g of the goal
+- If one item is not enough to hit the goals, combine MULTIPLE items
+- You can suggest larger portions (e.g. "2 servings") to hit the targets
+- Respect all dietary preferences strictly
+- Do NOT recommend items that violate dietary preferences
 - Keep explanations short and useful
 
 Return ONLY valid JSON in this exact format with no extra text:
@@ -133,7 +141,7 @@ Return ONLY valid JSON in this exact format with no extra text:
           "Authorization": `Bearer ${GROQ_API_KEY}`
         },
         body: JSON.stringify({
-          model: "llama-3.1-8b-instant",
+          model: "llama-3.3-70b-versatile",
           messages: [{ role: "user", content: prompt }],
           max_tokens: 1200,
           temperature: 0.4
