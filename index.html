@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TruPlate — Truman State Meal Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <div class="bg-grid"></div>
+
+    <main class="container">
+      <header class="hero">
+        <div class="hero-badge">AI-Powered Dining Hall Meal Planner</div>
+        <h1>TruPlate</h1>
+      </header>
+
+      <section class="card">
+        <p class="section-label"><span class="step-num">1</span> Load Live Menu</p>
+
+        <div class="goals-grid">
+          <div class="goal-input">
+            <label for="menuDate">Date</label>
+            <div class="input-wrap">
+              <input type="date" id="menuDate" />
+            </div>
+          </div>
+
+          <div class="goal-input">
+            <label for="mealPeriod">Meal Period</label>
+            <div class="input-wrap">
+              <select id="mealPeriod">
+                <option value="ALL">All</option>
+                <option value="BREAKFAST">Breakfast</option>
+                <option value="BRUNCH">Brunch</option>
+                <option value="LUNCH">Lunch</option>
+                <option value="DINNER">Dinner</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <button id="loadMenuBtn" class="secondary-btn" type="button">Load Live Menu</button>
+
+        <div id="liveMenuPreview" class="menu-preview">
+          No menu loaded yet.
+        </div>
+      </section>
+
+      <section class="card">
+        <p class="section-label"><span class="step-num">2</span> Enter Nutrition Goals</p>
+
+        <div class="goals-grid">
+          <div class="goal-input">
+            <label for="calories">Calories</label>
+            <div class="input-wrap">
+              <input type="number" id="calories" placeholder="e.g. 700" />
+            </div>
+          </div>
+
+          <div class="goal-input">
+            <label for="protein">Protein (g)</label>
+            <div class="input-wrap">
+              <input type="number" id="protein" placeholder="e.g. 35" />
+            </div>
+          </div>
+
+          <div class="goal-input">
+            <label for="carbs">Carbs (g)</label>
+            <div class="input-wrap">
+              <input type="number" id="carbs" placeholder="e.g. 60" />
+            </div>
+          </div>
+
+          <div class="goal-input">
+            <label for="fat">Fat (g)</label>
+            <div class="input-wrap">
+              <input type="number" id="fat" placeholder="e.g. 20" />
+            </div>
+          </div>
+
+          <div class="goal-input">
+            <label for="fiber">Fiber (g)</label>
+            <div class="input-wrap">
+              <input type="number" id="fiber" placeholder="e.g. 8" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <p class="section-label"><span class="step-num">3</span> Dietary Preferences</p>
+
+        <div class="chip-wrap">
+          <button class="pref-chip" data-val="vegetarian" type="button">Vegetarian</button>
+          <button class="pref-chip" data-val="vegan" type="button">Vegan</button>
+          <button class="pref-chip" data-val="gluten-free" type="button">Gluten-Free</button>
+          <button class="pref-chip" data-val="dairy-free" type="button">Dairy-Free</button>
+          <button class="pref-chip" data-val="high-protein" type="button">High Protein</button>
+          <button class="pref-chip" data-val="low-carb" type="button">Low Carb</button>
+          <button class="pref-chip" data-val="peanut-free" type="button">Peanut-Free</button>
+        </div>
+      </section>
+
+      <section class="card action-card">
+        <button id="generateBtn" class="primary-btn" type="button">Design My Meal</button>
+
+        <div id="loading" class="loading-box">
+          Generating your meal plan...
+        </div>
+
+        <div id="errorBox" class="error-box"></div>
+      </section>
+
+      <section id="result" class="card result-card">
+        <div id="resultBody"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
